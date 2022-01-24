@@ -143,15 +143,15 @@ console.log(highGrades);
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
 
 function highestGrade (arrayOfNumbers){
-    let FindHighestGrade = 0;
+    let findHighestGrade = 0;
 
     for (let i = 0; i < arrayOfNumbers.length; i++) {
-        if (arrayOfNumbers[i] > FindHighestGrade) {
-            FindHighestGrade = arrayOfNumbers[i];
+        if (arrayOfNumbers[i] > findHighestGrade) {
+            findHighestGrade = arrayOfNumbers[i];
         }
     }
 
-    return FindHighestGrade;
+    return findHighestGrade;
 }
 
 const check = highestGrade(grades);
