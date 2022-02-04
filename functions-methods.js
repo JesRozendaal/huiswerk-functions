@@ -77,13 +77,11 @@ function checkEmailValidity (emailadres) {
 
     const dotAtEnd = findDot !== emailadres.length -1;
 
-    if (containsMonkeyTail && !containsComma && dotAtEnd) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    return containsMonkeyTail && !containsComma && dotAtEnd;
 }
+// Hier kun je de uitkomst van de expressie meteen teruggeven:
+// return containsMonkeyTail && !containsComma && dotAtEnd;
+// ik had een if-statement
 
 const validEmail = checkEmailValidity("n.eeken@novi.nl");
 const validEmail2 = checkEmailValidity("tessmellink@novi.nl");

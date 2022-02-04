@@ -21,6 +21,7 @@ let cumLaudeStudents = 0;
 for (i = 0; i < grades.length; i++) {
 if (grades[i] >= 8) {
     cumLaudeStudents = cumLaudeStudents + 1;
+    // kan ook cumLaudeStudents++ gebruiken
 }
 }
 
@@ -70,7 +71,8 @@ console.log (checkDiploma3);
 let sum = 0;
 
 for (let i = 0; i < grades.length; i++) {
-    sum = sum + grades[i];
+    sum += grades[i];
+    // of gewoon sum = sum + grades [i];
 }
 
 console.log ( sum / grades.length);
@@ -122,7 +124,12 @@ console.log(average3.toFixed(2));
 
 // ---- Verwachte uitkomst: 9
 
-let highGrades = 0;
+let highGrades = grades[0];
+
+// let highGrades = 0;
+// Je kan hier beter niet 0 maar de eerste waarde uit de array pakken.
+// Het zal hier altijd goed gaan, omdat in de praktijk cijfers niet lager dan 0 kunnen zijn.
+// Maar stel je voor dat je een array aanlevert van [-1, -2, -5, -3], dan krijg je 0 terug wat dus niet klopt.
 
 for (let i = 0; i < grades.length; i++) {
     if (grades[i] > highGrades) {
