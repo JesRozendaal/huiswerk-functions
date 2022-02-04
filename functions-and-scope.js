@@ -16,6 +16,16 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
+let cumLaudeStudents = 0;
+
+for (i = 0; i < grades.length; i++) {
+if (grades[i] >= 8) {
+    cumLaudeStudents = cumLaudeStudents + 1;
+    // kan ook cumLaudeStudents++ gebruiken
+}
+}
+
+console.log(cumLaudeStudents);
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -27,8 +37,24 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
+function cumLaude (getGrades) {
+    let cumLaudeStudents = 0;
 
+    for (i = 0; i < getGrades.length; i++) {
+        if (getGrades[i] >= 8) {
+            cumLaudeStudents = cumLaudeStudents + 1;
+        }
+    }
+    return cumLaudeStudents;
+}
 
+const checkDiploma = cumLaude(grades);
+const checkDiploma2 = cumLaude([6, 4, 5]);
+const checkDiploma3 = cumLaude([8, 9, 4, 6, 10]);
+
+console.log (checkDiploma);
+console.log (checkDiploma2);
+console.log (checkDiploma3);
 
 /* Opdracht  2: Gemiddeld cijfer */
 
@@ -42,6 +68,14 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
+let sum = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    sum += grades[i];
+    // of gewoon sum = sum + grades [i];
+}
+
+console.log ( sum / grades.length);
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
@@ -53,12 +87,30 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // averageGrade([6, 4, 5]) geeft xxxx
 // averageGrade([8, 9, 4, 6, 10]) geeft xxxx
 
+function averageGrade (sumOfGrades) {
+    let sum = 0;
+
+    for (let i = 0; i < sumOfGrades.length; i++) {
+        sum = sum + sumOfGrades[i];
+    }
+    return sum / sumOfGrades.length;
+}
+
+const average = averageGrade(grades);
+const average2 = averageGrade([6, 4, 5]);
+const average3 = averageGrade([8, 9, 4, 6, 10]);
+
+console.log(average);
+console.log(average2);
+console.log(average3);
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
 
-
+console.log(average.toFixed(2));
+console.log(average2.toFixed(2));
+console.log(average3.toFixed(2));
 
 
 /* Bonusopdracht: hoogste cijfer */
@@ -72,6 +124,20 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 9
 
+let highGrades = grades[0];
+
+// let highGrades = 0;
+// Je kan hier beter niet 0 maar de eerste waarde uit de array pakken.
+// Het zal hier altijd goed gaan, omdat in de praktijk cijfers niet lager dan 0 kunnen zijn.
+// Maar stel je voor dat je een array aanlevert van [-1, -2, -5, -3], dan krijg je 0 terug wat dus niet klopt.
+
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] > highGrades) {
+        highGrades = grades[i];
+    }
+}
+
+console.log(highGrades);
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
@@ -82,3 +148,23 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+function highestGrade (arrayOfNumbers){
+    let findHighestGrade = 0;
+
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+        if (arrayOfNumbers[i] > findHighestGrade) {
+            findHighestGrade = arrayOfNumbers[i];
+        }
+    }
+
+    return findHighestGrade;
+}
+
+const check = highestGrade(grades);
+const check2= highestGrade([6, 4, 5]);
+const check3 = highestGrade([8, 9, 4, 6, 10]);
+
+console.log(check);
+console.log(check2);
+console.log(check3);
